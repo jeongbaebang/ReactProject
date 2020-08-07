@@ -1,5 +1,8 @@
 import React from "react";
+import AanalogDisplay from "./components/AnalogDisplay.jsx";
 
-const App = () => {};
+const App = () => {
+  return <AanalogDisplay />;
+};
 
 export default App;

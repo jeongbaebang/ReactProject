@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Container } from "react-bootstrap";
-import "AnalogDisplay.css";
+import "./AnalogDisplay.css";
 
-class AanalogDisplay extends Component {
+class AnalogDisplay extends Component {
   constructor(props) {
     super(props);
     this.lunchClocks();
@@ -51,4 +51,4 @@ class AanalogDisplay extends Component {
   }
 }
 
-export default AanalogDisplay;
+export default AnalogDisplay;

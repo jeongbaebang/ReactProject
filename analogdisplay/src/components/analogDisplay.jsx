@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { Container } from "react-bootstrap";
-import "./AnalogDisplay.css";
+import "./analogDisplay.css";
 
 class AnalogDisplay extends Component {
   constructor(props) {
@@ -20,33 +19,41 @@ class AnalogDisplay extends Component {
   /*상태갱신 */
   lunchClocks() {
     setInterval(() => {
+      const { date, hours, minutes, seconds } = this.state;
+
       this.setState({
         date: new Date(),
-        hours: ((this.state.date.getHours() + 11) % 12) + 1,
-        minutes: this.state.date.getMinutes(),
-        seconds: this.state.date.getSeconds(),
-        hour: this.state.hours * 30,
-        minute: this.state.minutes * 6,
-        second: this.state.seconds * 6,
+        hours: ((date.getHours() + 11) % 12) + 1,
+        minutes: date.getMinutes(),
+        seconds: date.getSeconds(),
+        hour: hours * 30,
+        minute: minutes * 6,
+        second: seconds * 6,
       });
-    }, 100);
+    }, 500);
   }
 
   render() {
-    const hour = { transform: `rotate(${this.state.hour}deg)` };
-    const minute = { transform: `rotate(${this.state.minute}deg)` };
-    const second = { transform: `rotate(${this.state.second}deg)` };
     return (
-      <Container className="background">
+      <div className="background">
         <div className="clock">
           <div className="wrap">
-            <span className="hour" style={hour} />
-            <span className="minute" style={minute} />
-            <span className="second" style={second} />
+            <span
+              className="hour"
+              style={{ transform: `rotate(${this.state.hour}deg)` }}
+            />
+            <span
+              className="minute"
+              style={{ transform: `rotate(${this.state.minute}deg)` }}
+            />
+            <span
+              className="second"
+              style={{ transform: `rotate(${this.state.second}deg)` }}
+            />
             <span className="dot" />
           </div>
         </div>
-      </Container>
+      </div>
     );
   }
 }
